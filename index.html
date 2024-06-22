@@ -221,6 +221,16 @@
             }
         });
 
+        document.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            if (!gameOver) {
+                jump();
+            } else {
+                initGame();
+                gameLoop();
+            }
+        });
+
         initGame();
         gameLoop();
     </script>
