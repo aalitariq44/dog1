@@ -207,7 +207,7 @@
                 ctx.fillText('انتهت اللعبة!', canvas.width / 2 - 120, canvas.height / 2 - 50);
                 ctx.font = '24px Arial';
                 ctx.fillText('النتيجة: ' + score, canvas.width / 2 - 60, canvas.height / 2 + 10);
-                ctx.fillText('اضغط Enter لإعادة اللعب', canvas.width / 2 - 120, canvas.height / 2 + 50);
+                ctx.fillText('اضغط 0 لإعادة اللعب', canvas.width / 2 - 120, canvas.height / 2 + 50);
             }
         }
 
@@ -218,6 +218,18 @@
             } else if (e.code === 'Enter' && gameOver) {
                 initGame();
                 gameLoop();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === '0') {
+                e.preventDefault();
+                if (!gameOver) {
+                    jump();
+                } else {
+                    initGame();
+                    gameLoop();
+                }
             }
         });
 
